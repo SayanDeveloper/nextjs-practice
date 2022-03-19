@@ -47,9 +47,9 @@ function HomePage(props) {
 // }
 
 // This runs while building the production build, revalidate key works as setInterval
-export async function getStaticProps(context) {
-  const params = context.params;
-  console.log(params);
+export async function getStaticProps() {
+  // const params = context.params;
+  // console.log(params);
 
   // fetch from db
   const client = await MongoClient.connect(`mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@cluster0.tkrsh.mongodb.net/next-meetups?retryWrites=true&w=majority`);
@@ -77,22 +77,22 @@ export async function getStaticProps(context) {
 }
 
 // this is required to use context param in getStaticProps
-export async function getStaticPaths() {
-  return {
-    /* fallback: false means that nextjs will not have to apply intelligence to find for other dynamic path params
-    from that api, that means all the paths params are present in paths array
-    */
-    fallback: false,
-    // these paths will be pre fetched and rendered as html
-    paths: [
-      { params: {
-        meetupId: "meet1",
-      }},
-      { params: {
-        meetupId: "meet2",
-      }}
-    ]
-  }
-}
+// export async function getStaticPaths() {
+//   return {
+//     /* fallback: false means that nextjs will not have to apply intelligence to find for other dynamic path params
+//     from that api, that means all the paths params are present in paths array
+//     */
+//     fallback: false,
+//     // these paths will be pre fetched and rendered as html
+//     paths: [
+//       { params: {
+//         meetupId: "meet1",
+//       }},
+//       { params: {
+//         meetupId: "meet2",
+//       }}
+//     ]
+//   }
+// }
 
 export default HomePage;
