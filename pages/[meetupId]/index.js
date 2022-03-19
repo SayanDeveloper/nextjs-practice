@@ -18,7 +18,7 @@ function MeetupDetail(props) {
                 image={props.meetup.image}
                 title={props.meetup.title}
                 address={props.meetup.address}
-                details={props.meetup.details}
+                description={props.meetup.description}
             />
         </>
     )
