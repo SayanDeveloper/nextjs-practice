@@ -72,7 +72,7 @@ export async function getStaticProps() {
       })),
     },
     // to re fetch the data in server side (unit is in seconds)
-    revalidate: 3600
+    revalidate: 1
   }
 }
 
